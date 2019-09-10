@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="七夜LaNotte">
 <meta property="og:description" content="JavaScript基础如何引入JavaScript外联文件1&amp;lt;script src=&quot;引入的文件位置（本地文件位置或者远程链接）&quot;&amp;gt;&amp;lt;/script&amp;gt;  内联文件123&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	js代码编写的位置&amp;lt;/script&amp;gt;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-10T03:17:59.605Z">
+<meta property="og:updated_time" content="2019-09-10T04:53:49.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript总结">
 <meta name="twitter:description" content="JavaScript基础如何引入JavaScript外联文件1&amp;lt;script src=&quot;引入的文件位置（本地文件位置或者远程链接）&quot;&amp;gt;&amp;lt;/script&amp;gt;  内联文件123&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	js代码编写的位置&amp;lt;/script&amp;gt;">
@@ -468,15 +468,13 @@
 <li>使用<code>delete</code>删除JSON对象的属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> myObj.cars.car1;</span><br></pre></td></tr></table></figure>
 
 
-
-
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p><strong>typeof 操作符的注意点</strong>：</p>
+<pre><code>​    </code></pre><p><strong>typeof 操作符的注意点</strong>：</p>
 <ul>
 <li>typeof 是操作符，不是方法。虽然我们经常使用 typeof() 的方式获取对象的数据类型</li>
 <li>对 null 取 typeof 是 object（这是因为 null 是 空的对象引用），对函数取 typeof 是 function</li>
@@ -552,7 +550,7 @@
 </li>
 </ul>
 <ul>
-<li><p>Screen对象**</p>
+<li><p>Screen对象</p>
 <p><strong>window.screen</strong>对象在编写时可以不使用 window 这个前缀</p>
 <p>一些属性：</p>
 <ul>
@@ -578,7 +576,7 @@
 </li>
 </ul>
 <ul>
-<li><p>History对象**</p>
+<li><p>History对象</p>
 <p>一些方法：</p>
 <ul>
 <li><p><code>history.back()</code></p>
@@ -598,8 +596,10 @@
 
 <p>​    当调用该函数时，会执行函数内的代码。</p>
 <p>​    可以在某事件发生时直接调用函数（比如当用户点击按钮时），并且可由 JavaScript 在任何位置进行调用。</p>
-<h3 id="获取函数参数"><a href="#获取函数参数" class="headerlink" title="获取函数参数"></a>获取函数参数</h3><p>常规方式</p>
-<p>通过内置arguments对象获取</p>
+<h3 id="获取函数参数"><a href="#获取函数参数" class="headerlink" title="获取函数参数"></a>获取函数参数</h3><ul>
+<li>常规方式</li>
+<li>通过内置arguments对象获取</li>
+</ul>
 <h3 id="自调用函数"><a href="#自调用函数" class="headerlink" title="自调用函数"></a>自调用函数</h3><p>函数表达式可以 “自调用”，自调用表达式会自动调用。</p>
 <p>如果表达式后面紧跟 () ，则会自动调用。</p>
 <p>不能自调用声明的函数。</p>
