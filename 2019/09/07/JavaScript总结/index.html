@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="七夜LaNotte">
 <meta property="og:description" content="JavaScript基础如何引入JavaScript外联文件1&amp;lt;script src=&quot;引入的文件位置（本地文件位置或者远程链接）&quot;&amp;gt;&amp;lt;/script&amp;gt;  内联文件123&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	js代码编写的位置&amp;lt;/script&amp;gt;">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-10T03:08:55.560Z">
+<meta property="og:updated_time" content="2019-09-10T03:17:59.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript总结">
 <meta name="twitter:description" content="JavaScript基础如何引入JavaScript外联文件1&amp;lt;script src=&quot;引入的文件位置（本地文件位置或者远程链接）&quot;&amp;gt;&amp;lt;/script&amp;gt;  内联文件123&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;	js代码编写的位置&amp;lt;/script&amp;gt;">
@@ -460,6 +460,13 @@
 <ul>
 <li><p>也是使用点号或括号来修改JSON对象中的任意值</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myObj.cars.car3 = <span class="string">"Mercedes Benz"</span>;	<span class="comment">//使用点号</span></span><br><span class="line">myObj.cars[<span class="string">"car3"</span>] = <span class="string">"Mercedes Benz"</span>;	<span class="comment">//使用括号</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>删除对象属性</p>
+<ul>
+<li>使用<code>delete</code>删除JSON对象的属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> myObj.cars.car1;</span><br></pre></td></tr></table></figure>
+
 
 
 
@@ -469,11 +476,7 @@
 </ul>
 </li>
 </ul>
-<pre><code>- 删除对象属性
-
-  - 使用`delete`删除JSON对象的属性
-
-    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> myObj.cars.car1;</span><br></pre></td></tr></table></figure></code></pre><p><strong>typeof 操作符的注意点</strong>：</p>
+<p><strong>typeof 操作符的注意点</strong>：</p>
 <ul>
 <li>typeof 是操作符，不是方法。虽然我们经常使用 typeof() 的方式获取对象的数据类型</li>
 <li>对 null 取 typeof 是 object（这是因为 null 是 空的对象引用），对函数取 typeof 是 function</li>
