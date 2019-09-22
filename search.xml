@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[AJAX总结--JS原生Ajax & jQuery Ajax]]></title>
+    <url>%2F2019%2F09%2F22%2FAJAX%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[原生Ajaxget请求流程 创建ajax请求对象： 大多数浏览器为XMLHTTPRequest()，高版本IE浏览器为ActiveXObject(&quot;Msxml2.XMLHTTP&quot;)，低版本IE浏览器为ActiveXObject(&quot;Microsoft.XMLHTTP&quot;) 123456789101112131415161718function ajaxFunction()&#123; var xmlHttp; try&#123; // Firefox, Chrome, Opera 8.0+, Safari xmlHttp=new XMLHttpRequest(); &#125; catch (e)&#123; try&#123;// Internet Explorer（高版本） xmlHttp=new ActiveXObject("Msxml2.XMLHTTP"); &#125; catch (e)&#123; try&#123;// Internet Explorer（低版本） xmlHttp=new ActiveXObject("Microsoft.XMLHTTP"); &#125; catch (e)&#123;&#125; &#125; &#125; return xmlHttp; &#125; 使用open方法创建http请求，并设置请求地址 123456789101112131415//执行get请求function get() &#123; //1. 创建xmlhttprequest 对象 var xhr = ajaxFunction(); //2. 发送请求。 /* * 参数一： 请求类型 GET or POST * 参数二： 请求的路径 * 参数三： 是否异步， true or false */ xhr.open("GET" ,"TestServlet" ,true ); xhr.send();&#125; 如果发送请求的同时，还想获取数据，那么代码如下 12345678910111213141516171819202122//执行get请求function get() &#123; //1. 创建xmlhttprequest 对象 var xhr = ajaxFunction(); //2. 设置请求参数 xhr.open("GET" ,"TestServlet?name=aa&amp;age=18" ,true ); //3. 获取响应数据 注册监听的意思。 一会准备的状态发生了改变，那么就执行 = 号右边的方法 xhr.onreadystatechange = function()&#123; // readyState的值一共有5个状态，参见下表 // readyState == 4 表示请求已经完成， 再判断状态码是否是200，200表示服务端正常响应(没有报错) if(xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123; //弹出响应的信息 alert(request.responseText); &#125; &#125; // 4. 发送请求 xhr.send();&#125; post请求流程Post请求方式和Get请求基本相同，只是由于post方式传递数据是模仿form表单传递给服务器的,要设置header头协议 12345678910111213141516171819202122232425262728//1. 创建对象// 和get请求一样function post() &#123; //1. 创建请求对象 var xhr = ajaxFunction(); // 2. 设置请求地址、参数、类型(post、get) xhr.open("post", "StudentServlet", true); //3. 获取响应数据 注册监听的意思。 一会准备的状态发生了改变，那么就执行 = 号右边的方法 xhr.onreadystatechange = function()&#123; //前半段表示 已经能够正常处理。 再判断状态码是否是200 if(xhr.readyState == 4 &amp;&amp; xhr.status == 200)&#123; //弹出响应的信息 console.log("请求完成"); var h1 = document.getElementById("h1"); h1.innerHTML = xhr.responseText; &#125; &#125; // 4. 如果使用的是post方式带数据，那么 这里要添加头， 说明提交的数据类型是一个经过url编码的form表单数据 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 5. 发送请求 // 如果是GET请求，参数写在这里是无效的 xhr.send("id=555");&#125; jQuery Ajax$.ajax()的使用该方法用于执行Ajax请求，常用于其他jQuery Ajax方法不能完成的请求，是jQuery中Ajax系列方法的的底层实现，其他方法都是在它的基础上给我们封装的更方便使用的方法。 形式：$.ajax(url, [settings]);常用字段： url：链接地址，字符串 type：“POST&quot;或 “GET&quot;，请求类型 data：需发送到服务器的数据，GET与POST都可以，格式为{A: ‘…’, B: ‘…’} dataType：服务器响应的数据类型，字符串表示；当填写为json时，回调函数中无需再对数据反序列化为json success：请求成功后，服务器回调的函数 error：请求失败后，服务器回调的函数 123456789101112131415$.ajax("TestServlet", &#123; type: "GET", data: &#123; action: "json", uname: "zhangsan" &#125;, dataType: "json", success: function(data, status_text)&#123; console.log(data); console.log("status_text: " + status_text); &#125;, error: function(xhr, textStatus, errorThrow) &#123; console.log("请求失败"); &#125;&#125;); $.get()的使用$.get()方法使用GET方式来进行异步请求，它的语法结构为： $.get(url, data, func, dataType); 123456789101112/* * 参数： * url: 请求地址 * data: 待发送 Key/value 参数 * fn: 请求成功后回调函数 * type: 返回内容格式，xml, html, script, json, text, _default */$.get( "url",&#123;pid:pid&#125; ,function(data,status_text)&#123; console.log(data); console.log("status_text: " + status_text);&#125;,"json" ); // 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象 $.post()的使用$.post()方法使用POST方式来进行异步请求，它的语法结构为： $.post(url, data, function, dataType); 123456789101112/* * 参数： * url: 请求地址 * data: 待发送 Key/value 参数 * fn: 请求成功后回调函数 * type: 返回内容格式，xml, html, script, json, text, _default */$.post( "url",&#123;pid:pid&#125; ,function(data,status)&#123; console.log(data); console.log("status_text: " + status_text);&#125;,"json" ); // 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象 $.getJSON();的使用$.getJSON()是专门为ajax获取json数据而设置的，该方法使用GET方式执行Ajax请求，从服务器加载JSON格式数据，并且支持跨域调用，它的语法结构为： $.getJSON(url, data, func); 因为确定服务器返回的是json编码的数据，所以相较于$.get()不用再指定dataType。 123$.getJSON("url", &#123;id:1, name: "zhangsan"&#125; function(json)&#123; console.log(json);&#125;); 以上四个方法的关系和区别？$.ajax()是jQuery的底层AJAX实现，$.get()和$.post()是简单易用的jQuery高层AJAX实现 $.getJSON()是通过 HTTP GET 请求载入 JSON 数据。]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Java学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cookie & Session总结]]></title>
+    <url>%2F2019%2F09%2F22%2FCookie-Session%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[CookieCookie是什么Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。 为什么要使用Cookie因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录信 息；引入cookie之后，在请求时会把cookie附加到请求头中，这样服务端一读取请求头就知道了这次请求是哪个用户发起的。 什么情况下要使用CookieCookie的使用分为在业务程序中显式使用和通过容器隐式使用。 隐式使用： 首次访问JSP、Servlet时，Servlet容器会自动往响应头中添加一个Cookie(Tomcat中是JSESSIONID) 显式使用： 当我们有一些安全性要求不高，数据量不大的用户数据需要存储时，可以考虑使用Cookie 怎么使用Cookie?Cookie的属性 在Chrome浏览器开发者模式中，我们可以看到网站的cookie；图中可以看到Cookie具有的属性有 Name、value、Domain、path、Expires/Max-Age、Size、HTTP、Secure等。 Name：该Cookie的名称，一旦创建，名称便不可更改 Value：该Cookie的值，如果值为Unicode字符，需要为字符编码 Domain：可以访问到这个Cookie的域名。如果设置为.google.com,则所有以google.com结尾的域名都可以访问该 Cookie。注意第一个字符必须为. 注： 非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不能设置其他二级域名的cookie，否则cookie无法生成。 顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。 二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，这样就可以在所有二级域名里面或者到这个cookie的值了。 顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。 Path：可以访问到这个Cookie的页面路径。 比如domain是.goole.com, path是/TestServlet，那么只有/TestServlet 路径下的页面可以读取此Cookie。 Expires/Max-Age: 该Cookie失效时间，单位秒。Cookie在maxAge秒之后失效。 Size：此Cookie的大小。 HTTP：此cookie的httponly属性。若此属性为true，则只有在http请求头中会带有此cookie的信息，而不能通过document.cookie来访问此cookie。 Secure：设置是否只能通过https来传递此条cookie。 Cookie的创建1234567891011121314151617// 两种方法// 1. 构造时将数据传入Cookie cookie = new Cookie("key", "value");// 2. 构造时无参，然后通过set方法设置数据Cookie cookie = new Cookie();cookie.setName("key");cookie.setValue("value");// 除了核心的数据之外，我们还可以设置一些其他属性// 1. 设置过期时间cookie.setMaxAge(60); //单位：秒(60秒后,Cookie会自动删除)// 2. 设置Domaincookie.setDomain("www.baidu.com"); // 代表只有访问www.baidu.com这个域名下的请求，才能获取到此Cookiecookie.setDomain(".baidu.com"); // 代表所有www.baidu.com下的二级域名包括www.baidu.com这个一级域名都可以共享此Cookie（注意这种情况下domain必须以"."开头）// 3. 设置Path cookie.setPath("/StudentServlet"); // 一旦设置了Path，那么要获取Cookie，当前的请求地址必须满足Path的规则，否则获取不到此Cookie http://xxx:port/student/StudentServlet/getstu/3 Cookie的添加12// 使用响应对象写入浏览器reponse.addCookie(cookie); //本质上会在响应中添加一个Set-Cookie响应头。 Cookie删除1234// Cookie没有delete方法// 我们可以通过设置过期时间为0实现删除cookie.setMaxAge(0);response.addCookie(cookie); Cookie的修改123456// Cookie的修改其实就是覆盖添加// 具体来说分三步// 1. 先获取已有Cookie，// 2. 然后修改其中的数据，// 3. 最后调用response.addCookie()重新添加到浏览器，浏览器看到Key相同的Cookie会自动更新 获取Cookie中的数据123456789// 1. 先通过请求对象获取请求中携带的所有Cookie数组Cookie[] cookies = request.getCookies();// 2. 迭代Cookie数组，寻找要操作的Cookiefor(Cookie cookie : cookies) &#123; // 根据cookie.getName()判断是否是自己要获取数据的cookie // 3. 找到后，调用cookie.getValue()获取数据&#125; SessionSession是什么？Session和Cookie类似，都是用来存储用户信息的。不同于Cookie的是Session是存储在服务器端。他们两者通过JSESSIONID关联起来。 为什么要用Session？虽然Cookie已经可以标识出哪个请求是属于哪个用户的。但是不足的是Cookie本身是存储于客户端硬盘上，安全性不高，不适合存储敏感数据，还有Cookie本身能存储的数据很有限（数据大小本身限制、数据类型限制、字符集限制）。而存储在服务端的Session完全没有这些问题。 什么情况下要使用Session?Session可以用来存储用户的所有信息，理论上所有能在Cookie中存储的数据都可以放到Session中。考虑到Session是基于内存的，如果存储太多不太重要的数据会大大增加服务器端内存压力，一般Session会配合Cookie一起使用。 怎么使用Session?创建Session12// Session是由容器自动创建的，我们可以在代码中直接获取SesssionHttpSession session = request.getSession(); 往Session中存储数据1session.setAttribute(); 获取Session中的数据1session.getAttribute(); 删除Session中的数据1session.removeAttribute(); 修改Session中的数据12345678910// 修改Session中的数据和修改Cookie中的数据类似，都是覆盖添加// 1. 获取要修改的数据Object data = session.getAttribute("key");// 2. 修改数据对应的属性data.setXXX();// 3. 将修改后的数据重新存入Sessionsession.setAttribute("key", data); 强制让Session失效1session.invalidate(); //调用后session对象会失效，同时客户端Cookie中的JSESSIONID也会发生变化]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Java学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaWeb分页实现总结]]></title>
+    <url>%2F2019%2F09%2F22%2FJavaWeb%E5%88%86%E9%A1%B5%E5%AE%9E%E7%8E%B0%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[基于MySQL的查询分页物理分页物理分页是直接使用SQL语句通过数据库的特性查询数据库，实现分页，每次从数据库中获取的数据都仅仅是一页的数据。 物理分页的好处就是效率高。 不好的地方就是不同数据库有不同的搞法，因为要依赖查询语句来查询数据库，所以不同的数据库，使用的分页语句也都不相同。 MySQL中的分页：使用limit关键字 12select * from student limit 0, 10-- 表示的是从第0条开始取，取10条数据 逻辑分页逻辑分页就是一次性把数据查询出来，之所以叫逻辑分页就是因为每次从数据库查询数据时没有做分页，而是将取得的所有数据储存到内存缓存中，每次翻页是在内存中对数据做裁剪，取得数据。 逻辑分页的好处就是翻页的速度快，对于数量量比较小来说很适合，数据量大，最好采用物理分页，防止内存溢出。且逻辑分页并不依赖于数据库来实现，所以所有的数据库逻辑分页实现方案都一样。 逻辑分页方法： 根据条件sql查询数据库 得到ResultSet的结果集,由于ResultSet带有游标，因此可以使用其next()方法来指向下一条记录 利用next()方法，得到分页所需的结果集 通用的分页参数参数概览 当前页（前端页面传参） 每页条数（前端页面传参） 总条数（从数据库中查询得到） 总页数（由总页数和每页条数计算得知） 每页要展示的数据 计算公式假设数据库使用的是mysql， 第一页从1开始 总页数算法： 总条数 / 每页条数， 能整除就用商； 不能整除商+1 取当前页数据 开始位置：（当前页 - 1）* 每页条数 结束位置（使用与逻辑分页）：当前页 * 每页条数 取多少条（适用于mysql物理分页）：每页条数]]></content>
+      <categories>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>Java学习总结</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Eclipse导入web项目出现红叉解决办法]]></title>
     <url>%2F2019%2F09%2F19%2FEclipse%E5%AF%BC%E5%85%A5web%E9%A1%B9%E7%9B%AE%E5%87%BA%E7%8E%B0%E7%BA%A2%E5%8F%89%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
     <content type="text"><![CDATA[eclipse导入别人的Java web项目时会出现这种情况：仅项目名出现红叉而其他地方没有红叉的问题。 这可能是以下几种情况导致的，其解决方法如下： 导入项目之前，请确认工作空间编码已设置为utf-8：window-&gt;Preferences-&gt;General-&gt;Wrokspace-&gt;Text file encoding-&gt;Other 选择UTF-8。 导入后，由于你的开发环境中JRE以及Tomcat Library名称可能和源代码中的不一致，可能会出现Build Path的错误，解决方法如下：右键project-&gt;Build Path-&gt;Configure Build Path-&gt;选择Libraries tab页-&gt;删除带小红叉的Library-&gt;点击Add Library-&gt;选择JRE System Library(删了Tomcat Library的话就选择Server Runtime)-&gt;选择一个JRE后-&gt;Finish。 如果web项目能够正常部署且运行无误，进入项目包下的.settings目录，找到org.eclipse.wst.common.project.facet.core.xml文件，用记事本打开后才发现这句话有问题：《runtime name=”Apache Tomcat v6.0”/》。我eclipse中设置的tomcat是9.0版本的，而它的运行环境是8.5版本的tomcat，肯定会出现问题。于是把这句话删掉，刷新工程，红叉消失。]]></content>
@@ -31,8 +64,8 @@
         <category>web前端</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
+        <tag>Java学习总结</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -43,8 +76,8 @@
         <category>web前端</category>
       </categories>
       <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
+        <tag>Java学习总结</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
 </search>
