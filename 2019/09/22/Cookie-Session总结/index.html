@@ -210,8 +210,21 @@
   
 </nav>
 
+ <!-- jquery -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+ <!-- live2d -->
+
+<div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="240" height="210" class="live2d"></canvas>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script>
+<script src="/lib/poster-girl/live2d.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/assets/pio.model.json");
+</script>
  </div>
     </header>
 
@@ -849,7 +862,7 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"pio","log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 
 <!-- 页面点击小红心 -->
