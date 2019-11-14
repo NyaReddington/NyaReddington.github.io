@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hexo搭建教程,">
+  <meta name="keywords" content="IDEA,SpringBoot,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文件上传前端页面必要条件 需要有一个form表单 form表单需要设置以下几个属性： action:  提交数据的目的地 method: 设置post enctype: 设置成multipart/form-data   form里需要至少有一个file域： &amp;lt;input type=”file” name=”xxx” /&amp;gt;  后端技术所谓文件上传其实就是用流的方式，将文件从客户的电脑上通">
-<meta name="keywords" content="hexo搭建教程">
+<meta name="description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
+<meta name="keywords" content="IDEA,SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件上传">
-<meta property="og:url" content="http://yoursite.com/2019/09/17/文件上传/index.html">
+<meta property="og:title" content="IDEA显示Run Dashboard窗口">
+<meta property="og:url" content="http://yoursite.com/2019/11/14/IDEA显示Run-Dashboard窗口/index.html">
 <meta property="og:site_name" content="七夜LaNotte">
-<meta property="og:description" content="文件上传前端页面必要条件 需要有一个form表单 form表单需要设置以下几个属性： action:  提交数据的目的地 method: 设置post enctype: 设置成multipart/form-data   form里需要至少有一个file域： &amp;lt;input type=”file” name=”xxx” /&amp;gt;  后端技术所谓文件上传其实就是用流的方式，将文件从客户的电脑上通">
+<meta property="og:description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-17T13:26:01.188Z">
+<meta property="og:updated_time" content="2019-11-14T13:13:28.671Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件上传">
-<meta name="twitter:description" content="文件上传前端页面必要条件 需要有一个form表单 form表单需要设置以下几个属性： action:  提交数据的目的地 method: 设置post enctype: 设置成multipart/form-data   form里需要至少有一个file域： &amp;lt;input type=”file” name=”xxx” /&amp;gt;  后端技术所谓文件上传其实就是用流的方式，将文件从客户的电脑上通">
+<meta name="twitter:title" content="IDEA显示Run Dashboard窗口">
+<meta name="twitter:description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
 
 
 
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/17/文件上传/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/14/IDEA显示Run-Dashboard窗口/">
 
 
 
 
 
-  <title>文件上传 | 七夜LaNotte</title>
+  <title>IDEA显示Run Dashboard窗口 | 七夜LaNotte</title>
   
 
 
@@ -208,8 +208,21 @@
   
 </nav>
 
+ <!-- jquery -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+ <!-- live2d -->
+
+<div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="240" height="210" class="live2d"></canvas>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script>
+<script src="/lib/poster-girl/live2d.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/assets/pio.model.json");
+</script>
  </div>
     </header>
 
@@ -233,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/文件上传/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/14/IDEA显示Run-Dashboard窗口/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="七夜LaNotte">
@@ -250,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">文件上传</h1>
+          <h1 class="post-title" itemprop="name headline">IDEA显示Run Dashboard窗口</h1>
         
 
         <div class="post-meta">
@@ -262,8 +275,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-17T20:21:03+08:00">
-                2019-09-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-14T21:10:43+08:00">
+                2019-11-14
               </time>
             
 
@@ -285,8 +298,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
+                  <a href="/categories/错误解决/" itemprop="url" rel="index">
+                    <span itemprop="name">错误解决</span>
                   </a>
                 </span>
 
@@ -327,61 +340,19 @@
       
 
       
-        <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h2><h3 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h3><ol>
-<li>需要有一个form表单</li>
-<li>form表单需要设置以下几个属性：<ol>
-<li>action:  提交数据的目的地</li>
-<li>method: 设置post</li>
-<li>enctype: 设置成multipart/form-data</li>
-</ol>
-</li>
-<li>form里需要至少有一个file域： &lt;input type=”file” name=”xxx” /&gt;</li>
-</ol>
-<h2 id="后端技术"><a href="#后端技术" class="headerlink" title="后端技术"></a>后端技术</h2><p>所谓文件上传其实就是用流的方式，将文件从客户的电脑上通过网页中的表单， 以二进制流的方式，流到服务器的过程。</p>
-<p>文件下载就是反过来， 将文件从服务器上通过二进制流的方式流到客户电脑上。</p>
-<h3 id="Servlet3-0上传方式"><a href="#Servlet3-0上传方式" class="headerlink" title="Servlet3.0上传方式"></a>Servlet3.0上传方式</h3><h4 id="Servlet3-0上传的核心：-一个注解、一个接口"><a href="#Servlet3-0上传的核心：-一个注解、一个接口" class="headerlink" title="Servlet3.0上传的核心： 一个注解、一个接口"></a>Servlet3.0上传的核心： 一个注解、一个接口</h4><p>注解：</p>
-<p>@MultipartConfig： 开启Servlet文件上传功能</p>
-<p>接口：</p>
-<p>javax.servlet.http.Part：  封装了上传的文件相关的所有信息</p>
-<h4 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h4><ol>
-<li>新建处理文件上传的Servlet，然后重写doPost方法</li>
-<li>给Servlet添加@MultipartConfig注解，开启文件上传功能</li>
-<li>Part part = request.getPart(“input type=’type’ name的值”);</li>
-<li>part对象有两个作用：<ol>
-<li>可以获取到上传文件的所有信息，比如：文件名、大小、类型、文件流数据</li>
-<li>可以直接将文件写到服务器   part.write(“文件保存的路径”);</li>
-</ol>
-</li>
-</ol>
-<h3 id="Apache-Commons-Fileupload-上传方式"><a href="#Apache-Commons-Fileupload-上传方式" class="headerlink" title="Apache Commons Fileupload 上传方式"></a>Apache Commons Fileupload 上传方式</h3><h4 id="用fileupload上传的核心就是：一个接口、两个类"><a href="#用fileupload上传的核心就是：一个接口、两个类" class="headerlink" title="用fileupload上传的核心就是：一个接口、两个类"></a>用fileupload上传的核心就是：一个接口、两个类</h4><p>接口： FileItem</p>
-<p>封装了我们表单中的每个域的数据（可能是普通文本数据，也可能是上传的文件）</p>
-<p>类： </p>
-<p>DiskFileItemFactory：  用于创建文件上传对象的工厂</p>
-<p>ServletFileupload： 文件上传对象</p>
-<h4 id="具体操作步骤-1"><a href="#具体操作步骤-1" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h4><ol>
-<li><p>需要添加依赖： commons-fileupload.jar、commons-io.jar</p>
-</li>
-<li><p>新建处理文件上传的Servlet，然后重写doPost方法</p>
-</li>
-<li><p>调用ServletFileupload对象的静态方法，判断请求是否是一个文件上传请求</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!ServletFileupload.isMultipartContent(request)) &#123;</span><br><span class="line">    <span class="comment">// 如果不是multipart请求，代表不是一个有效的文件上传请求， 下面的步骤都可以省略了</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建文件上传工厂对象： </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DiskFileItemFactory factory = <span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line"><span class="comment">// factory.set.... 可以设置相关参数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建文件上传对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ServletFileupload upload = <span class="keyword">new</span> ServletFileupload(factory);</span><br><span class="line"><span class="comment">// upload.set.... 可以设置相关参数</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用文件上传对象解析请求对象，然后获取解析后的所有FileItem</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;FileItem&gt; fileItems = upload.parseRequest(request);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>迭代处理每个FileItem</p>
-<ol>
-<li>文本信息的FileItem获取后进行相关的业务操作</li>
-<li>文件类型的FileItem获取后，调用FileItem.write将文件写到服务器某个目录下。</li>
-</ol>
-</li>
-</ol>
+        <p>默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开</p>
+<p>但是如果没有提醒，就需要自己配置了：</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>工具栏中依次打开<code>View</code>-》<code>Tool Windows</code>-》<code>Run Dashboard</code></p>
+<p>如果上述的选项里没有Run Dashboard，使用方法二</p>
+<a id="more"></a>
+
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>找到工程目录中<code>.idea</code>文件夹下的<code>workspace.xml</code>，打开，接下来找到 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">"RunDashboard"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"ruleStates"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"ConfigurationTypeDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"StatusDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在其中加入一个如下的<option></option></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">"RunDashboard"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 加入此项 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"configurationTypes"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"SpringBootApplicationConfigurationType"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"ruleStates"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"ConfigurationTypeDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"StatusDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启项目，Run Dashboard窗口就会显示出来了</p>
 
       
     </div>
@@ -399,7 +370,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo搭建教程/" rel="tag"># hexo搭建教程</a>
+            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
         </div>
       
@@ -412,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/16/JSP/" rel="next" title="JSP">
-                <i class="fa fa-chevron-left"></i> JSP
+              <a href="/2019/09/22/AJAX总结/" rel="next" title="AJAX总结--JS原生Ajax & jQuery Ajax">
+                <i class="fa fa-chevron-left"></i> AJAX总结--JS原生Ajax & jQuery Ajax
               </a>
             
           </div>
@@ -500,7 +473,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -511,7 +484,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -522,7 +495,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -555,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件上传"><span class="nav-number">1.</span> <span class="nav-text">文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端页面"><span class="nav-number">1.1.</span> <span class="nav-text">前端页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必要条件"><span class="nav-number">1.1.1.</span> <span class="nav-text">必要条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端技术"><span class="nav-number">1.2.</span> <span class="nav-text">后端技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet3-0上传方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">Servlet3.0上传方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet3-0上传的核心：-一个注解、一个接口"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Servlet3.0上传的核心： 一个注解、一个接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体操作步骤"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">具体操作步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Commons-Fileupload-上传方式"><span class="nav-number">1.2.2.</span> <span class="nav-text">Apache Commons Fileupload 上传方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用fileupload上传的核心就是：一个接口、两个类"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">用fileupload上传的核心就是：一个接口、两个类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体操作步骤-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">具体操作步骤</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一："><span class="nav-number">1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li></ol></div>
             
 
           </div>
@@ -563,6 +536,13 @@
       <!--/noindex-->
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -632,11 +612,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -835,5 +810,12 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--动态线条背景-->
+<script type="text/javascript" color="220,220,220" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>

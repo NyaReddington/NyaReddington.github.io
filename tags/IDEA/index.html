@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="七夜LaNotte">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/IDEA/index.html">
 <meta property="og:site_name" content="七夜LaNotte">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -95,7 +95,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/hexo/">
+  <link rel="canonical" href="http://yoursite.com/tags/IDEA/">
 
 
 
 
 
-  <title>Tag: hexo | 七夜LaNotte</title>
+  <title>Tag: IDEA | 七夜LaNotte</title>
   
 
 
@@ -203,8 +203,21 @@
   
 </nav>
 
+ <!-- jquery -->
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+ <!-- live2d -->
+
+<div class="waifu">
+    <div class="waifu-tips"></div>
+    <canvas id="live2d" width="240" height="210" class="live2d"></canvas>
+</div>
+<script async src="/lib/poster-girl/waifu-tips.js"></script>
+<script src="/lib/poster-girl/live2d.js"></script>
+<script type="text/javascript">
+    loadlive2d("live2d", "/live2d/assets/pio.model.json");
+</script>
  </div>
     </header>
 
@@ -221,7 +234,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>hexo<small>Tag</small>
+        <h1>IDEA<small>Tag</small>
         </h1>
       </div>
 
@@ -233,43 +246,17 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/09/07/jQuery总结/" itemprop="url">
+            <a class="post-title-link" href="/2019/11/14/IDEA显示Run-Dashboard窗口/" itemprop="url">
               
-                <span itemprop="name">jQuery总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T20:46:51+08:00" content="2019-09-07">
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/07/JavaScript总结/" itemprop="url">
-              
-                <span itemprop="name">JavaScript总结</span>
+                <span itemprop="name">IDEA显示Run Dashboard窗口</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T19:55:00+08:00" content="2019-09-07">
-          09-07
+        <time class="post-time" itemprop="dateCreated" datetime="2019-11-14T21:10:43+08:00" content="2019-11-14">
+          11-14
         </time>
       </div>
 
@@ -329,7 +316,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -340,7 +327,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -351,7 +338,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -376,6 +363,13 @@
 
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -445,11 +439,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -624,5 +613,12 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--动态线条背景-->
+<script type="text/javascript" color="220,220,220" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
