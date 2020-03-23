@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="MacType,字体渲染,Chrome,">
+  <meta name="keywords" content="IDEA,SpringBoot,">
 
 
 
@@ -83,26 +83,18 @@
 
 
 
-<meta name="description" content="改善win10字体渲染效果如何改善 Windows 的字体渲染是一个亘古不变的话题，长期以来大家都有这样的一个印象：Windows 上面的字体渲染相比 MacOS 没有那么细腻清晰，默认的字体时不时以点阵形式出现戳瞎双眼。 实际上，也确实是这个样子，由于 Windows 世界中参差不齐的硬件和向前兼容的「历史包袱」，Windows 新 UI 和新的渲染模式需要去兼容老旧的程序，往往也正是因为这些程">
-<meta name="keywords" content="MacType,字体渲染,Chrome">
+<meta name="description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
+<meta name="keywords" content="IDEA,SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用MacType，让Windows的字体变得更漂亮">
-<meta property="og:url" content="http://yoursite.com/bv/fd42.html">
+<meta property="og:title" content="IDEA显示Run Dashboard窗口">
+<meta property="og:url" content="http://yoursite.com/bv/290c">
 <meta property="og:site_name" content="七夜LaNotte">
-<meta property="og:description" content="改善win10字体渲染效果如何改善 Windows 的字体渲染是一个亘古不变的话题，长期以来大家都有这样的一个印象：Windows 上面的字体渲染相比 MacOS 没有那么细腻清晰，默认的字体时不时以点阵形式出现戳瞎双眼。 实际上，也确实是这个样子，由于 Windows 世界中参差不齐的硬件和向前兼容的「历史包袱」，Windows 新 UI 和新的渲染模式需要去兼容老旧的程序，往往也正是因为这些程">
+<meta property="og:description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/HRNAZC5WpxVMh8B.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/nkIMXofVl4pibDy.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/KEPIvCm5oTHxXc1.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/Nqzn3j9kJrIKEie.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/h1RCXUxBS8q5wfm.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/Jhjs5noFLG4Zdup.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/22/IfJnjq9ACp5RLkY.png">
-<meta property="og:updated_time" content="2020-03-23T06:09:46.326Z">
+<meta property="og:updated_time" content="2020-03-23T06:09:46.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用MacType，让Windows的字体变得更漂亮">
-<meta name="twitter:description" content="改善win10字体渲染效果如何改善 Windows 的字体渲染是一个亘古不变的话题，长期以来大家都有这样的一个印象：Windows 上面的字体渲染相比 MacOS 没有那么细腻清晰，默认的字体时不时以点阵形式出现戳瞎双眼。 实际上，也确实是这个样子，由于 Windows 世界中参差不齐的硬件和向前兼容的「历史包袱」，Windows 新 UI 和新的渲染模式需要去兼容老旧的程序，往往也正是因为这些程">
-<meta name="twitter:image" content="https://i.loli.net/2020/03/22/HRNAZC5WpxVMh8B.png">
+<meta name="twitter:title" content="IDEA显示Run Dashboard窗口">
+<meta name="twitter:description" content="默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开 但是如果没有提醒，就需要自己配置了： 方法一：工具栏中依次打开View-》Tool Windows-》Run Dashboard 如果上述的选项里没有Run Dashboard，使用方法二">
 
 
 
@@ -132,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/bv/fd42.html">
+  <link rel="canonical" href="http://yoursite.com/bv/290c">
 
 
 
 
 
-  <title>使用MacType，让Windows的字体变得更漂亮 | 七夜LaNotte</title>
+  <title>IDEA显示Run Dashboard窗口 | 七夜LaNotte</title>
   
 
 
@@ -265,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/bv/fd42.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/bv/290c">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="七夜LaNotte">
@@ -282,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用MacType，让Windows的字体变得更漂亮</h1>
+          <h1 class="post-title" itemprop="name headline">IDEA显示Run Dashboard窗口</h1>
         
 
         <div class="post-meta">
@@ -294,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T22:00:25+08:00">
-                2020-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-14T21:10:43+08:00">
+                2019-11-14
               </time>
             
 
@@ -317,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
+                  <a href="/categories/错误解决/" itemprop="url" rel="index">
+                    <span itemprop="name">错误解决</span>
                   </a>
                 </span>
 
@@ -359,45 +351,19 @@
       
 
       
-        <h1 id="改善win10字体渲染效果"><a href="#改善win10字体渲染效果" class="headerlink" title="改善win10字体渲染效果"></a>改善win10字体渲染效果</h1><p><strong>如何改善 Windows 的字体渲染是一个亘古不变的话题，长期以来大家都有这样的一个印象：Windows 上面的字体渲染相比 MacOS 没有那么细腻清晰，默认的字体时不时以点阵形式出现戳瞎双眼。</strong></p>
-<p><strong>实际上，也确实是这个样子，由于 Windows 世界中参差不齐的硬件和向前兼容的「历史包袱」，Windows 新 UI 和新的渲染模式需要去兼容老旧的程序，往往也正是因为这些程序，给 Windows 用户「字体渲染模糊不清」的体验。</strong></p>
+        <p>默认情况下，IDEA的Run Dashboard是关闭的，当检测到你有多个springboot项目时会弹出提示框，询问是否打开</p>
+<p>但是如果没有提醒，就需要自己配置了：</p>
+<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>工具栏中依次打开<code>View</code>-》<code>Tool Windows</code>-》<code>Run Dashboard</code></p>
+<p>如果上述的选项里没有Run Dashboard，使用方法二</p>
 <a id="more"></a>
 
-<h2 id="关于-MacType"><a href="#关于-MacType" class="headerlink" title="关于 MacType"></a>关于 MacType</h2><p>MacType 是由 FlyingSnow 延续 GDI++ 开源专案的字体渲染软体，直白的说就是替 Windows 的使用者在网页浏览、系统界面、一般程式中呈现更好看的字体显示效果，其能一直无障碍兼容到最近的 Windows 10 。MacType 给 Windows 用户带来了优良的字体显示效果，也使得我们能够「热替换」系统默认字体而无需修改系统文件。</p>
-<p>诚如前面提到 MacType 是延续 GDI++ 开源专案而来，局限当然就是只能渲染 GDI+ 的程序。所以对 Windows 7 之后，采用微软开发的新字体渲染引擎 DirectWrite 方案的程序像是微软自己的 UWP APP、Office 系列程式一直没有直接的解决办法，最大众化的差异就体现在 Chrome 52 版拿掉禁止 DirectWrite 功能后，呈现出一片模糊的效果。但这在 Firefox 上不是问题。</p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>建议去Github仓库<code>Release</code>页面下载最新版本软件</p>
-<blockquote>
-<p>MacType下载地址：<br>    官网：<a href="https://www.mactype.net/" target="_blank" rel="noopener">https://www.mactype.net/</a><br>    Github：<a href="https://github.com/snowie2000/MacType" target="_blank" rel="noopener">https://github.com/snowie2000/MacType</a><br>noMeiryoUI下载地址：<br>    官网：<a href="http://tatsu.life.coocan.jp/MySoft/WinCust/index.html" target="_blank" rel="noopener">http://tatsu.life.coocan.jp/MySoft/WinCust/index.html</a><br>    Github：<a href="https://github.com/Tatsu-syo/noMeiryoUI" target="_blank" rel="noopener">https://github.com/Tatsu-syo/noMeiryoUI</a></p>
-</blockquote>
-<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p>首先下载MacType，按照提示一步步安装即可，安装完成后打开会自动进入配置MacType有注册表、服务、MacTray托盘三种加载模式，建议使用<code>MacTray托盘加载 -&gt; 独立加载模式</code>方式下一步选择配置，这里我喜欢使用<code>XMac</code>中的<code>XMac.LCD.Default</code>配置。</p>
-<p><img src="https://i.loli.net/2020/03/22/HRNAZC5WpxVMh8B.png" alt="用户向导.png"></p>
-<p>下一步选择配置，这里我喜欢使用<code>XMac</code>中的<code>XMac.LCD.Default</code>配置</p>
-<p><img src="https://i.loli.net/2020/03/22/nkIMXofVl4pibDy.png" alt="选择配置文件.png"></p>
-<p>配置完成后，即可开始享受一个字体渲染愉快的 Windows 了。实际上 MacType 使用过程你会遇到各种毛病，如 一些软件不能渲</p>
-<p>染，一些用宋体的软件渲染起来很难看，就需要替换系统的宋体。</p>
-<h2 id="修改系统字体"><a href="#修改系统字体" class="headerlink" title="修改系统字体"></a>修改系统字体</h2><p>运行<code>noMeiryoUI</code>，选择字体，设定全部</p>
-<p><img src="https://i.loli.net/2020/03/22/KEPIvCm5oTHxXc1.png" alt="noMeiryoUI界面.png"></p>
-<p><strong>我这里推荐这个字体：</strong><a href="https://github.com/be5invis/Sarasa-Gothic/" target="_blank" rel="noopener">Sarasa Gothic / 更纱黑体 / 更紗黑體 / 更紗ゴシック</a><strong>。更纱黑体是一个在 100% 缩放比例下同样有着优秀的显示效果的字体。在</strong> <a href="https://github.com/be5invis/Sarasa-Gothic/releases" target="_blank" rel="noopener">这里</a> <strong>可以下载到最新的</strong> <code>ttf</code> <strong>字体，安装之后会得到几个字体，其中我们需要的就是「更纱黑体 UISC」，即「Sarasa UI SC」。（SC 代表 Simplified Chinese，简体中文。）</strong></p>
-<h2 id="排除冲突进程"><a href="#排除冲突进程" class="headerlink" title="排除冲突进程"></a>排除冲突进程</h2><p>需要注意的是，部分应用可能会与 MacType 渲染存在冲突（例如 MacType 会影响 Office 2016 的安装失败），这时我们需要使用通</p>
-<p>过排除进程来使应用正常工作。</p>
-<p>打开 MacType 安装目录下的 <code>MacType.ini</code> 中添加以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[UnloadDll]</span><br><span class="line">sample1.exe</span><br><span class="line">sample2.exe</span><br><span class="line">sample3.exe</span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>找到工程目录中<code>.idea</code>文件夹下的<code>workspace.xml</code>，打开，接下来找到 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">"RunDashboard"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"ruleStates"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"ConfigurationTypeDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"StatusDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>将其中 <code>sample*.exe</code> 替换为所需排除的程序名即可。另外需要注意的是若使用「注册表加载模式」，配置文件的变更需要重启才能生效。</p>
-<h2 id="显示效果对比"><a href="#显示效果对比" class="headerlink" title="显示效果对比"></a>显示效果对比</h2><p><img src="https://i.loli.net/2020/03/22/Nqzn3j9kJrIKEie.png" alt="win10字体渲染对比.png"></p>
-<h1 id="改善Chrome字体渲染效果"><a href="#改善Chrome字体渲染效果" class="headerlink" title="改善Chrome字体渲染效果"></a>改善Chrome字体渲染效果</h1><h2 id="修改Chrome字体设置"><a href="#修改Chrome字体设置" class="headerlink" title="修改Chrome字体设置"></a>修改Chrome字体设置</h2><p>打开chrome，进入<code>设置</code><strong>→</strong><code>外观</code><strong>→</strong><code>自定义字体</code></p>
-<p><img src="https://i.loli.net/2020/03/22/h1RCXUxBS8q5wfm.png" alt="Chrome字体设置.png"></p>
-<p>这里我是使用了Chrome推荐的字体设置插件<code>Advanced Font Settings</code>来修改的字体，在<a href="https://chrome.google.com/webstore/detail/advanced-font-settings/caclkomlalccbpcdllchkeecicepbmbm" target="_blank" rel="noopener">这里</a>可以下载安装这个扩展程序Advanced Font Settings 是一个chrome扩展，按理来说浏览器或系统也有自己的字体设置，但是这个Advanced Font Settings更加贴心一点，它可以按照英文、中文等等分开设置。可以在<a href="https://juejin.im/entry/59b8f1a76fb9a00a59593b37" target="_blank" rel="noopener">这里</a>了解该插件更多的内容。</p>
-<p><img src="https://i.loli.net/2020/03/22/Jhjs5noFLG4Zdup.png" alt="Chrome高级字体设置.png"></p>
-<p>此时将字体换为更纱黑体之后, 显示效果并不是很好，此时需要结合油猴插件<code>质感字体&amp;&amp;页面平滑滚动</code>增强字体的显示效果，</p>
-<p>脚本安装地址：<a href="http://suo.im/61ZO1o" target="_blank" rel="noopener">http://suo.im/61ZO1o</a></p>
-<h2 id="显示效果对比-1"><a href="#显示效果对比-1" class="headerlink" title="显示效果对比"></a>显示效果对比</h2><p><img src="https://i.loli.net/2020/03/22/IfJnjq9ACp5RLkY.png" alt="chrome字体渲染对比.png"></p>
-<blockquote>
-<p><strong>参考链接：</strong></p>
-<p><a href="https://hacpai.com/article/1565314286880" target="_blank" rel="noopener">MacType 美化 Windows10 字体，体验类 Mac 顺滑字体</a></p>
-<p><a href="https://blog.csdn.net/qq_36852780/article/details/104869572" target="_blank" rel="noopener">win10字体显示Mac效果+Chrome字体效果增强</a></p>
-<p><a href="https://www.jianshu.com/p/69230e540493" target="_blank" rel="noopener">Win10 Mactype 字体优化</a></p>
-</blockquote>
+<p>在其中加入一个如下的<option></option></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">component</span> <span class="attr">name</span>=<span class="string">"RunDashboard"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 加入此项 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"configurationTypes"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"SpringBootApplicationConfigurationType"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"ruleStates"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"ConfigurationTypeDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">RuleState</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"StatusDashboardGroupingRule"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">RuleState</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启项目，Run Dashboard窗口就会显示出来了</p>
 
       
     </div>
@@ -415,11 +381,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MacType/" rel="tag"># MacType</a>
+            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
           
-            <a href="/tags/字体渲染/" rel="tag"># 字体渲染</a>
-          
-            <a href="/tags/Chrome/" rel="tag"># Chrome</a>
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
           
         </div>
       
@@ -432,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/bv/290c.html" rel="next" title="IDEA显示Run Dashboard窗口">
-                <i class="fa fa-chevron-left"></i> IDEA显示Run Dashboard窗口
+              <a href="/bv/b570" rel="next" title="AJAX总结--JS原生Ajax & jQuery Ajax">
+                <i class="fa fa-chevron-left"></i> AJAX总结--JS原生Ajax & jQuery Ajax
               </a>
             
           </div>
@@ -441,6 +405,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bv/fd42" rel="prev" title="使用MacType，让Windows的字体变得更漂亮">
+                使用MacType，让Windows的字体变得更漂亮 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -575,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#改善win10字体渲染效果"><span class="nav-number">1.</span> <span class="nav-text">改善win10字体渲染效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于-MacType"><span class="nav-number">1.1.</span> <span class="nav-text">关于 MacType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件下载"><span class="nav-number">1.2.</span> <span class="nav-text">软件下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置"><span class="nav-number">1.3.</span> <span class="nav-text">安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改系统字体"><span class="nav-number">1.4.</span> <span class="nav-text">修改系统字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排除冲突进程"><span class="nav-number">1.5.</span> <span class="nav-text">排除冲突进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示效果对比"><span class="nav-number">1.6.</span> <span class="nav-text">显示效果对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改善Chrome字体渲染效果"><span class="nav-number">2.</span> <span class="nav-text">改善Chrome字体渲染效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Chrome字体设置"><span class="nav-number">2.1.</span> <span class="nav-text">修改Chrome字体设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示效果对比-1"><span class="nav-number">2.2.</span> <span class="nav-text">显示效果对比</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一："><span class="nav-number">1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二"><span class="nav-number">2.</span> <span class="nav-text">方法二</span></a></li></ol></div>
             
 
           </div>
