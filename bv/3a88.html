@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java学习总结,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CookieCookie是什么Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。 为什么要使用Cookie因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录">
+<meta name="keywords" content="Java学习总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie &amp; Session总结">
+<meta property="og:url" content="http://yoursite.com/bv/3a88.html">
+<meta property="og:site_name" content="七夜LaNotte">
+<meta property="og:description" content="CookieCookie是什么Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。 为什么要使用Cookie因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2019/09/22/2dnR9TPJtLV3Sec.png">
+<meta property="og:updated_time" content="2020-03-23T06:09:46.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie &amp; Session总结">
+<meta name="twitter:description" content="CookieCookie是什么Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。 为什么要使用Cookie因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/22/2dnR9TPJtLV3Sec.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/bv/3a88.html">
+
+
+
+
+
+  <title>Cookie & Session总结 | 七夜LaNotte</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">七夜LaNotte</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+<div id="tp-weather-widget" style="天气插件"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WX4FBXXFKE4F",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "dark",
+      token: "014f0770-33c0-4c40-b294-ed7ffb0f9ad7",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+
+ <!-- jquery -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/bv/3a88.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="七夜LaNotte">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="七夜LaNotte">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Cookie & Session总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T14:25:05+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><h3 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h3><p>Cookie是一种能够让Web服务器把少量数据储存到客户端的硬盘或内存里，或是从客户端的硬盘里读取数据的一种技术。</p>
+<h3 id="为什么要使用Cookie"><a href="#为什么要使用Cookie" class="headerlink" title="为什么要使用Cookie"></a>为什么要使用Cookie</h3><p>因为HTTP协议是一种无状态协议，Http没有保存状态，对每一个请求无法区别每个请求对应的是哪个用户，也无法判定是否是用户已经登录或者是还没登录，所以需要引入一种机制，通过在浏览器中存储一些数据，记录用户的登录状态和保存用户的登录信</p>
+<a id="more"></a>
+<p>息；引入cookie之后，在请求时会把cookie附加到请求头中，这样服务端一读取请求头就知道了这次请求是哪个用户发起的。</p>
+<h3 id="什么情况下要使用Cookie"><a href="#什么情况下要使用Cookie" class="headerlink" title="什么情况下要使用Cookie"></a>什么情况下要使用Cookie</h3><p>Cookie的使用分为在业务程序中显式使用和通过容器隐式使用。 </p>
+<ul>
+<li>隐式使用： 首次访问JSP、Servlet时，Servlet容器会自动往响应头中添加一个Cookie(Tomcat中是JSESSIONID)</li>
+<li>显式使用： 当我们有一些安全性要求不高，数据量不大的用户数据需要存储时，可以考虑使用Cookie</li>
+</ul>
+<h3 id="怎么使用Cookie"><a href="#怎么使用Cookie" class="headerlink" title="怎么使用Cookie?"></a>怎么使用Cookie?</h3><h4 id="Cookie的属性"><a href="#Cookie的属性" class="headerlink" title="Cookie的属性"></a>Cookie的属性</h4><p><img src="https://i.loli.net/2019/09/22/2dnR9TPJtLV3Sec.png" alt="cookie.png"></p>
+<p>在Chrome浏览器开发者模式中，我们可以看到网站的cookie；<br>图中可以看到Cookie具有的属性有 Name、value、Domain、path、Expires/Max-Age、Size、HTTP、Secure等。</p>
+<ul>
+<li><p><strong>Name</strong>：该Cookie的名称，一旦创建，名称便不可更改</p>
+</li>
+<li><p><strong>Value</strong>：该Cookie的值，如果值为Unicode字符，需要为字符编码</p>
+</li>
+<li><p><strong>Domain</strong>：可以访问到这个Cookie的域名。如果设置为<code>.google.com</code>,则所有以<code>google.com</code>结尾的域名都可以访问该      Cookie。注意第一个字符必须为<strong><code>.</code></strong></p>
+<blockquote>
+<p>注：</p>
+<p>非顶级域名，如二级域名或者三级域名，设置的cookie的domain只能为顶级域名或者二级域名或者三级域名本身，不能设置其他二级域名的cookie，否则cookie无法生成。</p>
+<p>顶级域名只能设置domain为顶级域名，不能设置为二级域名或者三级域名，否则cookie无法生成。</p>
+<p>二级域名能读取设置了domain为顶级域名或者自身的cookie，不能读取其他二级域名domain的cookie。所以要想cookie在多个二级域名中共享，需要设置domain为顶级域名，这样就可以在所有二级域名里面或者到这个cookie的值了。</p>
+<p>顶级域名只能获取到domain设置为顶级域名的cookie，其他domain设置为二级域名的无法获取。</p>
+</blockquote>
+</li>
+<li><p><strong>Path</strong>：可以访问到这个Cookie的页面路径。 比如domain是<code>.goole.com</code>,  path是<code>/TestServlet</code>，那么只有<code>/TestServlet</code> 路径下的页面可以读取此Cookie。 </p>
+</li>
+<li><p><strong>Expires/Max-Age:</strong> 该Cookie失效时间，单位秒。Cookie在maxAge秒之后失效。</p>
+</li>
+<li><p><strong>Size</strong>：此Cookie的大小。</p>
+</li>
+<li><p><strong>HTTP</strong>：此cookie的<code>httponly</code>属性。若此属性为<code>true</code>，则只有在http请求头中会带有此cookie的信息，而不能通过document.cookie来访问此cookie。</p>
+</li>
+<li><p><strong>Secure</strong>：设置是否只能通过https来传递此条cookie。</p>
+</li>
+</ul>
+<h4 id="Cookie的创建"><a href="#Cookie的创建" class="headerlink" title="Cookie的创建"></a>Cookie的创建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 两种方法</span></span><br><span class="line"><span class="comment">// 1. 构造时将数据传入</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"key"</span>, <span class="string">"value"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 构造时无参，然后通过set方法设置数据</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie();</span><br><span class="line">cookie.setName(<span class="string">"key"</span>);</span><br><span class="line">cookie.setValue(<span class="string">"value"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 除了核心的数据之外，我们还可以设置一些其他属性</span></span><br><span class="line"><span class="comment">// 1. 设置过期时间</span></span><br><span class="line">cookie.setMaxAge(<span class="number">60</span>);	<span class="comment">//单位：秒(60秒后,Cookie会自动删除)</span></span><br><span class="line"><span class="comment">// 2. 设置Domain</span></span><br><span class="line">cookie.setDomain(<span class="string">"www.baidu.com"</span>); <span class="comment">// 代表只有访问www.baidu.com这个域名下的请求，才能获取到此Cookie</span></span><br><span class="line">cookie.setDomain(<span class="string">".baidu.com"</span>);	<span class="comment">// 代表所有www.baidu.com下的二级域名包括www.baidu.com这个一级域名都可以共享此Cookie（注意这种情况下domain必须以"."开头）</span></span><br><span class="line"><span class="comment">// 3. 设置Path </span></span><br><span class="line">cookie.setPath(<span class="string">"/StudentServlet"</span>);	<span class="comment">// 一旦设置了Path，那么要获取Cookie，当前的请求地址必须满足Path的规则，否则获取不到此Cookie     http://xxx:port/student/StudentServlet/getstu/3</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Cookie的添加"><a href="#Cookie的添加" class="headerlink" title="Cookie的添加"></a>Cookie的添加</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用响应对象写入浏览器</span></span><br><span class="line">reponse.addCookie(cookie); <span class="comment">//本质上会在响应中添加一个Set-Cookie响应头。</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Cookie删除"><a href="#Cookie删除" class="headerlink" title="Cookie删除"></a>Cookie删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cookie没有delete方法</span></span><br><span class="line"><span class="comment">// 我们可以通过设置过期时间为0实现删除</span></span><br><span class="line">cookie.setMaxAge(<span class="number">0</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Cookie的修改"><a href="#Cookie的修改" class="headerlink" title="Cookie的修改"></a>Cookie的修改</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Cookie的修改其实就是覆盖添加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体来说分三步</span></span><br><span class="line"><span class="comment">// 1. 先获取已有Cookie，</span></span><br><span class="line"><span class="comment">// 2. 然后修改其中的数据，</span></span><br><span class="line"><span class="comment">// 3. 最后调用response.addCookie()重新添加到浏览器，浏览器看到Key相同的Cookie会自动更新</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="获取Cookie中的数据"><a href="#获取Cookie中的数据" class="headerlink" title="获取Cookie中的数据"></a>获取Cookie中的数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 先通过请求对象获取请求中携带的所有Cookie数组</span></span><br><span class="line">Cookie[] cookies = request.getCookies();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 迭代Cookie数组，寻找要操作的Cookie</span></span><br><span class="line"><span class="keyword">for</span>(Cookie cookie : cookies) &#123;</span><br><span class="line">    <span class="comment">// 根据cookie.getName()判断是否是自己要获取数据的cookie</span></span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 3. 找到后，调用cookie.getValue()获取数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><h3 id="Session是什么？"><a href="#Session是什么？" class="headerlink" title="Session是什么？"></a>Session是什么？</h3><p>Session和Cookie类似，都是用来存储用户信息的。不同于Cookie的是Session是存储在服务器端。他们两者通过JSESSIONID关联起来。</p>
+<h3 id="为什么要用Session？"><a href="#为什么要用Session？" class="headerlink" title="为什么要用Session？"></a>为什么要用Session？</h3><p>虽然Cookie已经可以标识出哪个请求是属于哪个用户的。但是不足的是Cookie本身是存储于客户端硬盘上，安全性不高，不适合存储敏感数据，还有Cookie本身能存储的数据很有限（数据大小本身限制、数据类型限制、字符集限制）。而存储在服务端的Session完全没有这些问题。</p>
+<h3 id="什么情况下要使用Session"><a href="#什么情况下要使用Session" class="headerlink" title="什么情况下要使用Session?"></a>什么情况下要使用Session?</h3><p>Session可以用来存储用户的所有信息，理论上所有能在Cookie中存储的数据都可以放到Session中。考虑到Session是基于内存的，如果存储太多不太重要的数据会大大增加服务器端内存压力，一般Session会配合Cookie一起使用。</p>
+<h3 id="怎么使用Session"><a href="#怎么使用Session" class="headerlink" title="怎么使用Session?"></a>怎么使用Session?</h3><h4 id="创建Session"><a href="#创建Session" class="headerlink" title="创建Session"></a>创建Session</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Session是由容器自动创建的，我们可以在代码中直接获取Sesssion</span></span><br><span class="line">HttpSession session = request.getSession();</span><br></pre></td></tr></table></figure>
+
+<h4 id="往Session中存储数据"><a href="#往Session中存储数据" class="headerlink" title="往Session中存储数据"></a>往Session中存储数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.setAttribute();</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取Session中的数据"><a href="#获取Session中的数据" class="headerlink" title="获取Session中的数据"></a>获取Session中的数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.getAttribute();</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除Session中的数据"><a href="#删除Session中的数据" class="headerlink" title="删除Session中的数据"></a>删除Session中的数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.removeAttribute();</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改Session中的数据"><a href="#修改Session中的数据" class="headerlink" title="修改Session中的数据"></a>修改Session中的数据</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改Session中的数据和修改Cookie中的数据类似，都是覆盖添加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 获取要修改的数据</span></span><br><span class="line">Object data = session.getAttribute(<span class="string">"key"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 修改数据对应的属性</span></span><br><span class="line">data.setXXX();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 将修改后的数据重新存入Session</span></span><br><span class="line">session.setAttribute(<span class="string">"key"</span>, data);</span><br></pre></td></tr></table></figure>
+
+<h4 id="强制让Session失效"><a href="#强制让Session失效" class="headerlink" title="强制让Session失效"></a>强制让Session失效</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.invalidate();	<span class="comment">//调用后session对象会失效，同时客户端Cookie中的JSESSIONID也会发生变化</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java学习总结/" rel="tag"># Java学习总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bv/38f6.html" rel="next" title="JavaWeb分页实现总结">
+                <i class="fa fa-chevron-left"></i> JavaWeb分页实现总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bv/b570.html" rel="prev" title="AJAX总结--JS原生Ajax & jQuery Ajax">
+                AJAX总结--JS原生Ajax & jQuery Ajax <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+	
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">七夜LaNotte</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie是什么"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用Cookie"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要使用Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么情况下要使用Cookie"><span class="nav-number">1.3.</span> <span class="nav-text">什么情况下要使用Cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么使用Cookie"><span class="nav-number">1.4.</span> <span class="nav-text">怎么使用Cookie?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的属性"><span class="nav-number">1.4.1.</span> <span class="nav-text">Cookie的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的创建"><span class="nav-number">1.4.2.</span> <span class="nav-text">Cookie的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的添加"><span class="nav-number">1.4.3.</span> <span class="nav-text">Cookie的添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie删除"><span class="nav-number">1.4.4.</span> <span class="nav-text">Cookie删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的修改"><span class="nav-number">1.4.5.</span> <span class="nav-text">Cookie的修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Cookie中的数据"><span class="nav-number">1.4.6.</span> <span class="nav-text">获取Cookie中的数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">2.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Session是什么？"><span class="nav-number">2.1.</span> <span class="nav-text">Session是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要用Session？"><span class="nav-number">2.2.</span> <span class="nav-text">为什么要用Session？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么情况下要使用Session"><span class="nav-number">2.3.</span> <span class="nav-text">什么情况下要使用Session?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么使用Session"><span class="nav-number">2.4.</span> <span class="nav-text">怎么使用Session?</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Session"><span class="nav-number">2.4.1.</span> <span class="nav-text">创建Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#往Session中存储数据"><span class="nav-number">2.4.2.</span> <span class="nav-text">往Session中存储数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Session中的数据"><span class="nav-number">2.4.3.</span> <span class="nav-text">获取Session中的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除Session中的数据"><span class="nav-number">2.4.4.</span> <span class="nav-text">删除Session中的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改Session中的数据"><span class="nav-number">2.4.5.</span> <span class="nav-text">修改Session中的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#强制让Session失效"><span class="nav-number">2.4.6.</span> <span class="nav-text">强制让Session失效</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七夜LaNotte</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  
+  <script async src="https://cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'cbc278762a38b43598dc',
+          clientSecret: 'b3f63fdf0d6ecd090bcb24995cc306a4efe69322',
+          repo: 'NyaReddington.github.io',
+          owner: 'NyaReddington',
+          admin: ['NyaReddington'],
+
+          id: md5(location.pathname),
+
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--动态线条背景-->
+<script type="text/javascript" color="220,220,220" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
