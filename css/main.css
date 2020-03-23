@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c86703;
+  background: #34bb08;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2688,6 +2688,5 @@ embed {
   display: inline-block;
 }
 .tp-weather-widget {
-  float: right;
-  margin: 10px;
+  z-index: 10;
 }
