@@ -161,53 +161,6 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-	<!-- 天气插件 -->
-	<!-- 添加“心知天气”-->
-	<div id="tp-weather-widget"></div>
-	<script>
-			(function(T, h, i, n, k, P, a, g, e) {
-				g = function() {
-					P = h.createElement(i);
-					a = h.getElementsByTagName(i)[0];
-					P.src = k;
-					P.charset = "utf-8";
-					P.async = 1;
-					a.parentNode.insertBefore(P, a)
-				};
-				T["ThinkPageWeatherWidgetObject"] = n;
-				T[n] || (T[n] = function() {
-					(T[n].q = T[n].q || []).push(arguments)
-				});
-				T[n].l = +new Date();
-				if (T.attachEvent) {
-					T.attachEvent("onload", g)
-				} else {
-					T.addEventListener("load", g, false)
-				}
-			}(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
-		</script>
-		<script>
-			tpwidget("init", {
-				"flavor": "slim",
-				"location": "WM6N2PM3WY2K",
-				"geolocation": "enabled",
-				"language": "zh-chs",
-				"unit": "c",
-				"theme": "chameleon",
-				"container": "tp-weather-widget",
-				"bubble": "enabled",
-				"alarmType": "badge",
-				"color": "#FFFFFF",
-				"uid": "U88B4B2797",
-				"hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
-			});
-			tpwidget("show");
-		</script>
-	<!-- 添加“心知天气”-->
-
-
-
-
   <div class="site-meta ">
     
 
@@ -270,6 +223,28 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+<style>
+	#tp-weather-widget{
+		float:right;
+		margin:10px;
+		display:none;
+	}
+</style>
+<div id="tp-weather-widget"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WX4FBXXFKE4F",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "auto",
+      token: "014f0770-33c0-4c40-b294-ed7ffb0f9ad7",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
  </div>
     </header>
 
