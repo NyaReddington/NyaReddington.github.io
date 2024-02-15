@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta name="google-site-verification" content="J6ihaTtFr5dchbFFPYWYMJqDJHC-Z_5mQ06DyTqDJq0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+  
+
+<link href="https://cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java学习总结,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="原生Ajaxget请求流程 创建ajax请求对象： 大多数浏览器为XMLHTTPRequest()，高版本IE浏览器为ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;)，低版本IE浏览器为ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;)">
+<meta name="keywords" content="Java学习总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX总结--JS原生Ajax &amp; jQuery Ajax">
+<meta property="og:url" content="http://yoursite.com/bv/b570/index.html">
+<meta property="og:site_name" content="七夜LaNotte">
+<meta property="og:description" content="原生Ajaxget请求流程 创建ajax请求对象： 大多数浏览器为XMLHTTPRequest()，高版本IE浏览器为ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;)，低版本IE浏览器为ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;)">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-23T06:09:46.319Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AJAX总结--JS原生Ajax &amp; jQuery Ajax">
+<meta name="twitter:description" content="原生Ajaxget请求流程 创建ajax请求对象： 大多数浏览器为XMLHTTPRequest()，高版本IE浏览器为ActiveXObject(&amp;quot;Msxml2.XMLHTTP&amp;quot;)，低版本IE浏览器为ActiveXObject(&amp;quot;Microsoft.XMLHTTP&amp;quot;)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/bv/b570/">
+
+
+
+
+
+  <title>AJAX总结--JS原生Ajax & jQuery Ajax | 七夜LaNotte</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">七夜LaNotte</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+<div id="tp-weather-widget" style="天气插件"></div>
+  <script>
+    (function(a,h,g,f,e,d,c,b){b=function(){d=h.createElement(g);c=h.getElementsByTagName(g)[0];d.src=e;d.charset="utf-8";d.async=1;c.parentNode.insertBefore(d,c)};a["SeniverseWeatherWidgetObject"]=f;a[f]||(a[f]=function(){(a[f].q=a[f].q||[]).push(arguments)});a[f].l=+new Date();if(a.attachEvent){a.attachEvent("onload",b)}else{a.addEventListener("load",b,false)}}(window,document,"script","SeniverseWeatherWidget","//cdn.sencdn.com/widget2/static/js/bundle.js?t="+parseInt((new Date().getTime() / 100000000).toString(),10)));
+    window.SeniverseWeatherWidget('show', {
+      flavor: "bubble",
+      location: "WX4FBXXFKE4F",
+      geolocation: true,
+      language: "zh-Hans",
+      unit: "c",
+      theme: "dark",
+      token: "014f0770-33c0-4c40-b294-ed7ffb0f9ad7",
+      hover: "enabled",
+      container: "tp-weather-widget"
+    })
+  </script>
+
+ <!-- jquery -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/bv/b570/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="七夜LaNotte">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="七夜LaNotte">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AJAX总结--JS原生Ajax & jQuery Ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T14:25:33+08:00">
+                2019-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaWeb/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaWeb</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>  阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="原生Ajax"><a href="#原生Ajax" class="headerlink" title="原生Ajax"></a>原生Ajax</h2><h3 id="get请求流程"><a href="#get请求流程" class="headerlink" title="get请求流程"></a>get请求流程</h3><ul>
+<li><p>创建ajax请求对象：</p>
+<p>大多数浏览器为<code>XMLHTTPRequest()</code>，高版本IE浏览器为<code>ActiveXObject(&quot;Msxml2.XMLHTTP&quot;)</code>，低版本IE浏览器为<code>ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)</code></p>
+<a id="more"></a>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">ajaxFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	    <span class="keyword">var</span> xmlHttp;</span><br><span class="line">	    <span class="keyword">try</span>&#123; <span class="comment">// Firefox, Chrome, Opera 8.0+, Safari</span></span><br><span class="line">	        xmlHttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">catch</span> (e)&#123;</span><br><span class="line">	        <span class="keyword">try</span>&#123;<span class="comment">// Internet Explorer（高版本）</span></span><br><span class="line">	            xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">	        &#125;</span><br><span class="line">	        <span class="keyword">catch</span> (e)&#123;</span><br><span class="line">	            <span class="keyword">try</span>&#123;<span class="comment">// Internet Explorer（低版本）</span></span><br><span class="line">	                xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">	            &#125;</span><br><span class="line">	            <span class="keyword">catch</span> (e)&#123;&#125;</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">return</span> xmlHttp;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用open方法创建http请求，并设置请求地址</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行get请求</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 创建xmlhttprequest 对象</span></span><br><span class="line">    <span class="keyword">var</span> xhr = ajaxFunction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 发送请求。</span></span><br><span class="line">    <span class="comment">/*	</span></span><br><span class="line"><span class="comment">	 *	参数一： 请求类型  GET or  POST</span></span><br><span class="line"><span class="comment">	 *	参数二： 请求的路径</span></span><br><span class="line"><span class="comment">	 *	参数三： 是否异步， true  or false</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">    xhr.open(<span class="string">"GET"</span> ,<span class="string">"TestServlet"</span> ,<span class="literal">true</span> );</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果发送请求的同时，还想获取数据，那么代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行get请求</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 创建xmlhttprequest 对象</span></span><br><span class="line">    <span class="keyword">var</span> xhr = ajaxFunction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2. 设置请求参数</span></span><br><span class="line">    xhr.open(<span class="string">"GET"</span> ,<span class="string">"TestServlet?name=aa&amp;age=18"</span> ,<span class="literal">true</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 获取响应数据 注册监听的意思。  一会准备的状态发生了改变，那么就执行 = 号右边的方法</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// readyState的值一共有5个状态，参见下表</span></span><br><span class="line">        <span class="comment">// readyState == 4 表示请求已经完成， 再判断状态码是否是200，200表示服务端正常响应(没有报错)</span></span><br><span class="line">        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//弹出响应的信息</span></span><br><span class="line">            alert(request.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 4. 发送请求</span></span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="post请求流程"><a href="#post请求流程" class="headerlink" title="post请求流程"></a>post请求流程</h3><p>Post请求方式和Get请求基本相同，只是由于post方式传递数据是模仿form表单传递给服务器的,要设置header头协议</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 创建对象</span></span><br><span class="line"><span class="comment">// 和get请求一样</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">post</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1. 创建请求对象</span></span><br><span class="line">    <span class="keyword">var</span> xhr = ajaxFunction();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 设置请求地址、参数、类型(post、get)</span></span><br><span class="line">    xhr.open(<span class="string">"post"</span>, <span class="string">"StudentServlet"</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 获取响应数据 注册监听的意思。  一会准备的状态发生了改变，那么就执行 = 号右边的方法</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//前半段表示 已经能够正常处理。  再判断状态码是否是200</span></span><br><span class="line">        <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//弹出响应的信息</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"请求完成"</span>);</span><br><span class="line">            <span class="keyword">var</span> h1 = <span class="built_in">document</span>.getElementById(<span class="string">"h1"</span>);</span><br><span class="line">            h1.innerHTML = xhr.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 如果使用的是post方式带数据，那么 这里要添加头， 说明提交的数据类型是一个经过url编码的form表单数据</span></span><br><span class="line">    xhr.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 发送请求</span></span><br><span class="line">    <span class="comment">// 如果是GET请求，参数写在这里是无效的</span></span><br><span class="line">    xhr.send(<span class="string">"id=555"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="jQuery-Ajax"><a href="#jQuery-Ajax" class="headerlink" title="jQuery Ajax"></a>jQuery Ajax</h2><h3 id="ajax-的使用"><a href="#ajax-的使用" class="headerlink" title="$.ajax()的使用"></a>$.ajax()的使用</h3><p>该方法用于执行Ajax请求，<strong>常用于其他jQuery Ajax方法不能完成的请求</strong>，是jQuery中Ajax系列方法的的底层实现，其他方法都是在它的基础上给我们封装的更方便使用的方法。</p>
+<p>形式：<code>$.ajax(url, [settings]);</code><br>常用字段：</p>
+<ul>
+<li><p><strong>url</strong>：链接地址，字符串</p>
+</li>
+<li><p><strong>type</strong>：<code>“POST&quot;</code>或 <code>“GET&quot;</code>，请求类型</p>
+</li>
+<li><p><strong>data</strong>：需发送到服务器的数据，GET与POST都可以，格式为{A: ‘…’, B: ‘…’}</p>
+</li>
+<li><p><strong>dataType</strong>：服务器响应的数据类型，字符串表示；当填写为json时，回调函数中无需再对数据反序列化为json</p>
+</li>
+<li><p><strong>success</strong>：请求成功后，服务器回调的函数</p>
+</li>
+<li><p><strong>error</strong>：请求失败后，服务器回调的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">"TestServlet"</span>, &#123;</span><br><span class="line">    type: <span class="string">"GET"</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        action: <span class="string">"json"</span>,</span><br><span class="line">        uname: <span class="string">"zhangsan"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    dataType: <span class="string">"json"</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">data, status_text</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"status_text: "</span> + status_text);</span><br><span class="line">    &#125;,</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span>(<span class="params">xhr, textStatus, errorThrow</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"请求失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="get-的使用"><a href="#get-的使用" class="headerlink" title="$.get()的使用"></a>$.get()的使用</h3><p><code>$.get()</code>方法使用GET方式来进行异步请求，它的语法结构为：</p>
+<p><code>$.get(url, data, func, dataType);</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 参数：</span></span><br><span class="line"><span class="comment"> *  url: 请求地址</span></span><br><span class="line"><span class="comment"> *  data: 待发送 Key/value 参数</span></span><br><span class="line"><span class="comment"> *  fn: 请求成功后回调函数</span></span><br><span class="line"><span class="comment"> *  type: 返回内容格式，xml, html, script, json, text, _default</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$.<span class="keyword">get</span>( "url",&#123;pid:pid&#125; ,<span class="function"><span class="keyword">function</span>(<span class="params">data,status_text</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"status_text: "</span> + status_text);</span><br><span class="line">&#125;,<span class="string">"json"</span> );	<span class="comment">// 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="post-的使用"><a href="#post-的使用" class="headerlink" title="$.post()的使用"></a>$.post()的使用</h3><p><code>$.post()</code>方法使用POST方式来进行异步请求，它的语法结构为：</p>
+<p><code>$.post(url, data, function, dataType);</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 参数：</span></span><br><span class="line"><span class="comment"> *  url: 请求地址</span></span><br><span class="line"><span class="comment"> *  data: 待发送 Key/value 参数</span></span><br><span class="line"><span class="comment"> *  fn: 请求成功后回调函数</span></span><br><span class="line"><span class="comment"> *  type: 返回内容格式，xml, html, script, json, text, _default</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">$.post( <span class="string">"url"</span>,&#123;<span class="attr">pid</span>:pid&#125; ,<span class="function"><span class="keyword">function</span>(<span class="params">data,status</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"status_text: "</span> + status_text);</span><br><span class="line">&#125;,<span class="string">"json"</span> );	<span class="comment">// 指定请求返回的格式是json，jquery会帮我们把服务端返回的json字符串转换成js的json对象</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="getJSON-的使用"><a href="#getJSON-的使用" class="headerlink" title="$.getJSON();的使用"></a>$.getJSON();的使用</h3><p><code>$.getJSON()</code>是专门为ajax获取json数据而设置的，该方法使用GET方式执行Ajax请求，从服务器加载JSON格式数据，并且支持跨域调用，它的语法结构为：</p>
+<p><code>$.getJSON(url, data, func);</code></p>
+<p>因为确定服务器返回的是json编码的数据，所以相较于$.get()不用再指定dataType。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(<span class="string">"url"</span>, &#123;<span class="attr">id</span>:<span class="number">1</span>, <span class="attr">name</span>: <span class="string">"zhangsan"</span>&#125; <span class="function"><span class="keyword">function</span>(<span class="params">json</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(json);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="以上四个方法的关系和区别？"><a href="#以上四个方法的关系和区别？" class="headerlink" title="以上四个方法的关系和区别？"></a>以上四个方法的关系和区别？</h3><p><code>$.ajax()</code>是jQuery的底层AJAX实现，<code>$.get()</code>和<code>$.post()</code>是简单易用的jQuery高层AJAX实现</p>
+<p><code>$.getJSON()</code>是通过 HTTP GET 请求载入 JSON 数据。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java学习总结/" rel="tag"># Java学习总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/bv/3a88/" rel="next" title="Cookie & Session总结">
+                <i class="fa fa-chevron-left"></i> Cookie & Session总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bv/290c/" rel="prev" title="IDEA显示Run Dashboard窗口">
+                IDEA显示Run Dashboard窗口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+	
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">七夜LaNotte</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生Ajax"><span class="nav-number">1.</span> <span class="nav-text">原生Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get请求流程"><span class="nav-number">1.1.</span> <span class="nav-text">get请求流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post请求流程"><span class="nav-number">1.2.</span> <span class="nav-text">post请求流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-Ajax"><span class="nav-number">2.</span> <span class="nav-text">jQuery Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax-的使用"><span class="nav-number">2.1.</span> <span class="nav-text">$.ajax()的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-的使用"><span class="nav-number">2.2.</span> <span class="nav-text">$.get()的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-的使用"><span class="nav-number">2.3.</span> <span class="nav-text">$.post()的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getJSON-的使用"><span class="nav-number">2.4.</span> <span class="nav-text">$.getJSON();的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以上四个方法的关系和区别？"><span class="nav-number">2.5.</span> <span class="nav-text">以上四个方法的关系和区别？</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七夜LaNotte</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  
+  <script async src="https://cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  <script src="/js/src/md5.min.js"></script>
+
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'cbc278762a38b43598dc',
+          clientSecret: 'b3f63fdf0d6ecd090bcb24995cc306a4efe69322',
+          repo: 'NyaReddington.github.io',
+          owner: 'NyaReddington',
+          admin: ['NyaReddington'],
+
+          id: md5(location.pathname),
+
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!--动态线条背景-->
+<script type="text/javascript" color="220,220,220" opacity="0.7" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
